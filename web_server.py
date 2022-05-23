@@ -28,13 +28,12 @@ def trigger_led(led_pin,led_state):
     if led_state==1:
         state=GPIO.HIGH
         GPIO.output(led_pin, state)
-        return
+        return "okay"
     elif led_state==0:
         state=GPIO.LOW
         GPIO.output(led_pin, state)
-        return 
+        return "okay"
     else:
         return "wrong state"
 
-    return
 app.run(host="0.0.0.0", port=5000)
