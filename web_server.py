@@ -12,7 +12,7 @@ def index():
 
 @app.route("/push-button")
 def push_button():
-    if GPIO.input(Button_PIN, GPIO.HIGH):
+    if GPIO.input(Button_PIN)== GPIO.HIGH:
         return "Button is pressed"
     return "not pressed"
 app.run(host="0.0.0.0", port=5000)
