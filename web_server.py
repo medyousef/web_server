@@ -25,17 +25,18 @@ def push_button():
 def trigger_led(led_pin,led_state):
     if led_pin not in LED_LIST:
         print("led no in the list")
-        if led_state==1:
-            state=GPIO.HIGH
-            mesg="on"
-        elif led_state==0:
-            state=GPIO.LOW
-            mesg="off"
-        else:
-            print("wrong state")
-    else:
+        return
+    if led_state==1:
+        state=GPIO.HIGH
+        mesg="on"
         GPIO.output(led_pin, state)
-        print("led : ", led_pin, "is :",mesg)
+    elif led_state==0:
+        state=GPIO.LOW
+        mesg="off"
+        GPIO.output(led_pin, state)
+    else:
+        print("wrong state")
+
 
     return
 app.run(host="0.0.0.0", port=5000)
